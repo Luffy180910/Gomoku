@@ -210,7 +210,7 @@ int ai_move_3_flour(int* min_value_unlocal,bool* change_flag)
                 int temp_value=ai_move_2_flour(&max_value);
                 
                 map[i][j]=0;
-                
+
                 if(temp_value>*min_value_unlocal){
                     return 0;
                 }
@@ -275,14 +275,17 @@ void game_start()    //游戏开始
         //落子
         map[x][y]=player;
         //打印棋盘
+        round_count++;
         print_map();
         //ai落子
         // coordinate ai_coordinate=ai_move();
         coordinate ai_coordinate=ai_move_4_flour();
         map[ai_coordinate.x][ai_coordinate.y]=2;
+        std::cout<<"computer choose x,y: "<<ai_coordinate.x<<","<<ai_coordinate.y<<std::endl;
         //打印棋盘
-        print_map();
         round_count++;
+        print_map();
+        
     }
 }
 
